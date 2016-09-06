@@ -11,7 +11,8 @@ Resources: `native2ascii`
 
 1. Controller and @Autowired.
 2. Change fxml for windows.
-3.
+3. AbstractMenuController.
+4. 
 
 
 

@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
  * Date: 19.08.2016
  * Time: 7:56
  */
-public class ContactsController implements Initializable /*extends AbstractController*/ {
+public class ContactsController extends AbstractMainMenuController {
 
     private static final Logger log = LoggerFactory.getLogger(ContactsController.class);
 

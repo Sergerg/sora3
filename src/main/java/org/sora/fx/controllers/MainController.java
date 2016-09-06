@@ -19,35 +19,8 @@ import java.util.ResourceBundle;
  * Date: 25.08.2016
  * Time: 14:31
  */
-public class MainController implements Initializable {
+public class MainController extends AbstractMainMenuController {
 
     private static final Logger log = LoggerFactory.getLogger(MainController.class);
 
-    @Autowired
-    @Qualifier("test")
-    Test test;
-
-    @Autowired
-    MainScreenBean mainScreenBean;
-
-    @FXML
-    public void initialize(URL location, ResourceBundle resources) {
-        log.debug("initialize ");
-    }
-
-    public void login(ActionEvent actionEvent) {
-        log.debug("login");
-
-        if (test != null)
-            log.debug(test.test());
-    }
-
-    public void contacts(ActionEvent actionEvent) {
-        log.debug("contacts");
-        mainScreenBean.show("contacts");
-    }
-
-    public void showErrorDialog(ActionEvent actionEvent) {
-        log.debug("showErrorDialog");
-    }
 }
