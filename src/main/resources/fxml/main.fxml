@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity"
+            maxWidth="-Infinity"
+            minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="320.0"
+            prefWidth="480.0"
+            xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.sora.fx.controllers.MainController">
+    <top>
+        <MenuBar fx:id="menuBar">
+            <!--<useSystemMenuBar>true</useSystemMenuBar>-->
+            <menus>
+                <Menu text="User">
+                    <items>
+                        <MenuItem text="Login" onAction="#login"/>
+                    </items>
+                    <items>
+                        <MenuItem text="Contacts" onAction="#contacts"/>
+                    </items>
+                </Menu>
+                <Menu text="Help">
+                    <items>
+                        <MenuItem text="Error screen" onAction="#showErrorDialog"/>
+                        <SeparatorMenuItem />
+                        <MenuItem text="About" disable="true"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <Label text="%mainform.mainlabel"/>
+    </center>
+</BorderPane>
