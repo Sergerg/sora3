@@ -23,4 +23,11 @@ public class MainController extends AbstractMainMenuController {
 
     private static final Logger log = LoggerFactory.getLogger(MainController.class);
 
+//    @FXML
+//    AbstractMainMenuController abstractMainMenuController;
+
+    @FXML
+    public void initialize(URL location, ResourceBundle resources) {
+        log.debug("initialize() ");
+    }
 }

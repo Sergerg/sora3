@@ -1,0 +1,29 @@
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<MenuBar
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:id="menuBar"
+        fx:controller="org.sora.fx.controllers.AbstractMainMenuController">
+    <menus>
+        <Menu text="User">
+            <items>
+                <MenuItem text="Login" onAction="#login"/>
+            </items>
+            <items>
+                <MenuItem text="Main" onAction="#main"/>
+            </items>
+            <items>
+                <MenuItem text="Contacts" onAction="#contacts"/>
+            </items>
+        </Menu>
+        <Menu text="Help">
+            <items>
+                <MenuItem text="Error screen" onAction="#showErrorDialog"/>
+                <SeparatorMenuItem />
+                <MenuItem text="About" disable="true"/>
+            </items>
+        </Menu>
+    </menus>
+</MenuBar>

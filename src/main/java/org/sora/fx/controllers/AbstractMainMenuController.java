@@ -42,6 +42,11 @@ abstract public class AbstractMainMenuController implements Initializable {
             log.debug(test.test());
     }
 
+    public void main(ActionEvent actionEvent) {
+        log.debug("main");
+        mainScreenBean.show("main");
+    }
+
     public void contacts(ActionEvent actionEvent) {
         log.debug("contacts");
         mainScreenBean.show("contacts");
@@ -50,5 +55,4 @@ abstract public class AbstractMainMenuController implements Initializable {
     public void showErrorDialog(ActionEvent actionEvent) {
         log.debug("showErrorDialog");
     }
-
 }
