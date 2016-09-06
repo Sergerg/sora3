@@ -10,6 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 //import org.sora.fx.entity.Contact;
 //import org.sora.fx.services.ContactService;
+import org.sora.fx.entity.Contact;
+import org.sora.fx.services.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -26,18 +28,18 @@ public class ContactsController extends AbstractMainMenuController {
 
     private static final Logger log = LoggerFactory.getLogger(ContactsController.class);
 
-//    @Autowired
-//    @Qualifier("contactService")
-//    private ContactService contactService;
+    @Autowired
+    @Qualifier("contactService")
+    private ContactService contactService;
 
-//    @FXML
-//    private TableView<Contact> tableClient;
+    @FXML
+    private TableView<Contact> tableClient;
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
         log.debug("initialize() ");
 
-//        super.initialize(location,resources);
+        super.initialize(location,resources);
 
         // TODO AutoCreating by Contact?!
 //        tableClient.getColumns().clear();
@@ -58,15 +60,14 @@ public class ContactsController extends AbstractMainMenuController {
 //                new PropertyValueFactory<Contact,String>("phone")
 //        );
 //        tableClient.getColumns().addAll(nickCol, nameCol, emailCol, phoneCol);
-//
-//        // bind!
-//        log.debug("contactService = " + contactService);
-//        if (contactService != null) {
-//            contactService.loadData();
-//            tableClient.setItems(contactService.getData());
-//        }
-    }
 
+        // bind!
+        log.debug("contactService = " + contactService);
+        if (contactService != null) {
+            contactService.loadData();
+//            tableClient.setItems(contactService.getData());
+        }
+    }
 
     public void addPerson(ActionEvent actionEvent) {
         log.info("addPerson");
