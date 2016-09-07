@@ -19,28 +19,28 @@ public class Application extends javafx.application.Application {
 
     // App start
     public static void main(String[] args) {
-        log.debug("BEGIN main.");
+        log.info("BEGIN main.");
         Application.args = args;
 
         launch(args);
-        log.debug("END main.");
+        log.info("END main.");
     }
 
     // Javafx runner
     @Override
     public void start(Stage primaryStage) throws Exception {
-        log.debug("BEGIN start.");
+        log.info("BEGIN start.");
 
         // Start Spring container
         ApplicationContext context = SpringApplication.run(Application.class, args);
-        log.debug("Spring context load ok.");
+        log.info("Spring context load ok.");
 
         // start JavaFX spring configuration
         MainScreenBean mainScreenBean = context.getBean(MainScreenBean.class);
         mainScreenBean.setPrimaryStage(primaryStage);
         mainScreenBean.show("main");
 
-        log.debug("END start.");
+        log.info("END start.");
     }
 
 }

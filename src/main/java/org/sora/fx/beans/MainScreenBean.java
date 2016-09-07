@@ -40,8 +40,16 @@ public class MainScreenBean {
     @Value("${spring.messages.basename}") // Явно брать из настроек Spring!
     private String mainResource;
 
+    public String nameCssConverter(String part) {
+        return "/css/"+part+".css";
+    }
+
+    public String nameFxmlConverter(String part) {
+        return "/fxml/"+part+".fxml";
+    }
+
     void closeRequest(WindowEvent event) {
-        log.info("primaryStage.setOnCloseRequest");
+        log.debug("primaryStage.setOnCloseRequest");
 
         ResourceBundle lngBndl = ResourceBundle.getBundle(mainResource);
         Alert a = new Alert(Alert.AlertType.CONFIRMATION);
@@ -65,17 +73,20 @@ public class MainScreenBean {
     private Stage primaryStage;
 
     public void setPrimaryStage(Stage primaryStage) {
+        log.debug("setPrimaryStage = " + primaryStage);
         this.primaryStage = primaryStage;
         primaryStage.setOnCloseRequest(event -> closeRequest(event));
     }
 
     @Bean(name = "contacts")
     ContactsController getContactsController() {
+        log.debug("getContactsController");
         return new ContactsController();
     }
 
     @Bean(name = "main")
     MainController getMainController() {
+        log.debug("getMainController");
         return new MainController();
     }
 
@@ -92,7 +103,7 @@ public class MainScreenBean {
         log.info("show, " + name);
         Scene scene;
         try {
-            URL fxmlUrl = getClass().getResource("/fxml/"+name+".fxml");
+            URL fxmlUrl = getClass().getResource(nameFxmlConverter(name));
             FXMLLoader loader = new FXMLLoader(fxmlUrl, ResourceBundle.getBundle(mainResource));
             if (name.equals("main")) {
                 loader.setControllerFactory(aClass -> getMainController());  // TODO - factory
@@ -103,7 +114,7 @@ public class MainScreenBean {
             Parent view = loader.load();
 
             scene = new Scene(view);
-            scene.getStylesheets().add(getClass().getResource("/css/"+name+".css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource(nameCssConverter(name)).toExternalForm());
         } catch (IOException e) {
             log.error("Can't load resource", e);
             throw new RuntimeException(e);

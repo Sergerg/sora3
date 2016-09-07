@@ -29,5 +29,7 @@ public class MainController extends AbstractMainMenuController {
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
         log.debug("initialize() ");
+
+        super.initialize(location,resources);
     }
 }
