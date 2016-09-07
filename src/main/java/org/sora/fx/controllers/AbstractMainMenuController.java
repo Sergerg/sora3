@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.sora.fx.beans.MainScreenBean;
+import org.sora.fx.beans.ScreensBean;
 import org.sora.fx.beans.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -28,7 +28,7 @@ abstract public class AbstractMainMenuController implements Initializable {
     Test test;
 
     @Autowired
-    MainScreenBean mainScreenBean;
+    ScreensBean mainScreenBean;
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {

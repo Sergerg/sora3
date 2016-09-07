@@ -22,6 +22,7 @@
             <items>
                 <MenuItem text="Error screen" onAction="#showErrorDialog"/>
                 <SeparatorMenuItem />
+                <!--<MenuItem text="About1" onAction="alert('aaaaaaa');" />-->
                 <MenuItem text="About" disable="true"/>
             </items>
         </Menu>

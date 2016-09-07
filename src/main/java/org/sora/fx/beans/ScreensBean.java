@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,9 +31,9 @@ import java.util.ResourceBundle;
  */
 @Configuration
 @Lazy
-public class MainScreenBean {
+public class ScreensBean {
 
-    private static final Logger log = LoggerFactory.getLogger(MainScreenBean.class);
+    private static final Logger log = LoggerFactory.getLogger(ScreensBean.class);
 
     @Value("${ui.main.title:JavaFX application}")
     private String windowTitle;
@@ -79,12 +80,14 @@ public class MainScreenBean {
     }
 
     @Bean(name = "contacts")
+    @Scope("prototype")
     ContactsController getContactsController() {
         log.debug("getContactsController");
         return new ContactsController();
     }
 
     @Bean(name = "main")
+    @Scope("prototype")
     MainController getMainController() {
         log.debug("getMainController");
         return new MainController();
@@ -111,7 +114,9 @@ public class MainScreenBean {
             if (name.equals("contacts")) {
                 loader.setControllerFactory(aClass -> getContactsController());  // TODO - factory
             }
+            log.debug("1");
             Parent view = loader.load();
+            log.debug("2");
 
             scene = new Scene(view);
             scene.getStylesheets().add(getClass().getResource(nameCssConverter(name)).toExternalForm());

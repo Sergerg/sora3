@@ -15,6 +15,7 @@ import org.sora.fx.services.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import javax.annotation.PostConstruct;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -35,12 +36,21 @@ public class ContactsController extends AbstractMainMenuController {
     @FXML
     private TableView<Contact> tableClient;
 
+    /**
+     * Del
+     */
+    @PostConstruct
+    public void init() {
+        log.debug("init");
+    }
+
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
         log.debug("initialize() ");
 
         super.initialize(location,resources);
 
+        log.debug("tableClient = " + tableClient);
         // TODO AutoCreating by Contact?!
         if (tableClient != null) {
             tableClient.getColumns().clear();
@@ -67,7 +77,6 @@ public class ContactsController extends AbstractMainMenuController {
         log.debug("contactService = " + contactService);
         if (contactService != null) {
             contactService.loadData();
-            log.debug("tableClient = " + tableClient);
             if (tableClient != null)
                 tableClient.setItems(contactService.getData());
         }
