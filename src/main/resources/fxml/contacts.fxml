@@ -18,6 +18,7 @@
                            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <!--<columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>-->
                     <!--<columns>-->
+                    <!--<TableColumn prefWidth="75.0" text="Nick" fx:id="nick" />-->
                     <!--<TableColumn prefWidth="75.0" text="Name" fx:id="name" />-->
                     <!--<TableColumn prefWidth="75.0" text="Email" fx:id="email" />-->
                     <!--<TableColumn prefWidth="75.0" text="Phone" fx:id="phone" />-->

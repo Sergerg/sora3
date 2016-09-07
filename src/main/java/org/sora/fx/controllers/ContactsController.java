@@ -42,30 +42,34 @@ public class ContactsController extends AbstractMainMenuController {
         super.initialize(location,resources);
 
         // TODO AutoCreating by Contact?!
-//        tableClient.getColumns().clear();
-//        TableColumn nickCol = new TableColumn("Nick");
-//        nickCol.setCellValueFactory(
-//                new PropertyValueFactory<Contact,String>("nick")
-//        );
-//        TableColumn nameCol = new TableColumn("Name");
-//        nameCol.setCellValueFactory(
-//                new PropertyValueFactory<Contact,String>("name")
-//        );
-//        TableColumn emailCol = new TableColumn("Email");
-//        emailCol.setCellValueFactory(
-//                new PropertyValueFactory<Contact,String>("email")
-//        );
-//        TableColumn phoneCol = new TableColumn("Phone");
-//        phoneCol.setCellValueFactory(
-//                new PropertyValueFactory<Contact,String>("phone")
-//        );
-//        tableClient.getColumns().addAll(nickCol, nameCol, emailCol, phoneCol);
+        if (tableClient != null) {
+            tableClient.getColumns().clear();
+            TableColumn nickCol = new TableColumn("Nick");
+            nickCol.setCellValueFactory(
+                    new PropertyValueFactory<Contact,String>("nick")
+            );
+            TableColumn nameCol = new TableColumn("Name");
+            nameCol.setCellValueFactory(
+                    new PropertyValueFactory<Contact,String>("name")
+            );
+            TableColumn emailCol = new TableColumn("Email");
+            emailCol.setCellValueFactory(
+                    new PropertyValueFactory<Contact,String>("email")
+            );
+            TableColumn phoneCol = new TableColumn("Phone");
+            phoneCol.setCellValueFactory(
+                    new PropertyValueFactory<Contact,String>("phone")
+            );
+            tableClient.getColumns().addAll(nickCol, nameCol, emailCol, phoneCol);
+        }
 
-        // bind!
+        // TODO: bind!
         log.debug("contactService = " + contactService);
         if (contactService != null) {
             contactService.loadData();
-//            tableClient.setItems(contactService.getData());
+            log.debug("tableClient = " + tableClient);
+            if (tableClient != null)
+                tableClient.setItems(contactService.getData());
         }
     }
 
