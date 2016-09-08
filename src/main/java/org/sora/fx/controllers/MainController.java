@@ -13,12 +13,12 @@ import java.util.ResourceBundle;
  * Date: 25.08.2016
  * Time: 14:31
  */
-public class MainController extends AbstractMainMenuController {
+public class MainController extends AbstractController {
 
     private static final Logger log = LoggerFactory.getLogger(MainController.class);
 
 //    @FXML
-//    AbstractMainMenuController abstractMainMenuController;
+//    AbstractController abstractMainMenuController;
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {

@@ -2,7 +2,6 @@ package org.sora.fx.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -25,7 +24,7 @@ import java.util.ResourceBundle;
  * Date: 19.08.2016
  * Time: 7:56
  */
-public class ContactsController extends AbstractMainMenuController {
+public class ContactsController extends AbstractController {
 
     private static final Logger log = LoggerFactory.getLogger(ContactsController.class);
 

@@ -8,7 +8,7 @@
 <MenuBar
         xmlns:fx="http://javafx.com/fxml/1"
         fx:id="menuBar"
-        fx:controller="org.sora.fx.controllers.AbstractMainMenuController">
+        fx:controller="org.sora.fx.controllers.MainMenuController">
     <menus>
         <Menu text="User">
             <items>

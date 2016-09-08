@@ -2,7 +2,6 @@ package org.sora.fx.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.sora.fx.beans.ScreensBean;
@@ -16,12 +15,11 @@ import java.util.ResourceBundle;
 /**
  * Created with IntelliJ IDEA.
  * User: Serger
- * Date: 06.09.2016
- * Time: 14:16
+ * Date: 08.09.2016
+ * Time: 13:30
  */
-abstract public class AbstractMainMenuController implements Initializable {
-
-    private static final Logger log = LoggerFactory.getLogger(AbstractMainMenuController.class);
+public class MainMenuController extends AbstractController {
+    private static final Logger log = LoggerFactory.getLogger(MainMenuController.class);
 
     @Autowired
     @Qualifier("test")
@@ -33,6 +31,8 @@ abstract public class AbstractMainMenuController implements Initializable {
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
         log.debug("initialize ");
+
+        super.initialize(location, resources);
     }
 
     public void login(ActionEvent actionEvent) {
@@ -55,4 +55,5 @@ abstract public class AbstractMainMenuController implements Initializable {
     public void showErrorDialog(ActionEvent actionEvent) {
         log.debug("showErrorDialog");
     }
+
 }

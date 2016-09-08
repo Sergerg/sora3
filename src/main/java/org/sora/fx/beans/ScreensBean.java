@@ -8,11 +8,17 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.sora.fx.controllers.ContactsController;
+import org.sora.fx.controllers.MainMenuController;
 import org.sora.fx.controllers.MainController;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
@@ -79,28 +85,29 @@ public class ScreensBean {
         primaryStage.setOnCloseRequest(event -> closeRequest(event));
     }
 
-    @Bean(name = "contacts")
+    @Bean//(name = "contacts")
     @Scope("prototype")
     ContactsController getContactsController() {
         log.debug("getContactsController");
         return new ContactsController();
     }
 
-    @Bean(name = "main")
+    @Bean//(name = "main")
     @Scope("prototype")
     MainController getMainController() {
         log.debug("getMainController");
         return new MainController();
     }
 
-    // TODO - factory
-//    //@Bean
-//    Object getController(String name) {
-//        if (name.equals("contacts"))
-//            return new ContactsController();
-//        //if (name.equals("main"))
-//            return new MainController();
-//    }
+    @Bean//(name = "mainMenu")
+    @Scope("prototype")
+    MainMenuController getMainMenuController() {
+        log.debug("getMainMenuController");
+        return new MainMenuController();
+    }
+
+    @Autowired
+    private ApplicationContext appContext;
 
     public void show(String name) {
         log.info("show, " + name);
@@ -108,15 +115,8 @@ public class ScreensBean {
         try {
             URL fxmlUrl = getClass().getResource(nameFxmlConverter(name));
             FXMLLoader loader = new FXMLLoader(fxmlUrl, ResourceBundle.getBundle(mainResource));
-            if (name.equals("main")) {
-                loader.setControllerFactory(aClass -> getMainController());  // TODO - factory
-            }
-            if (name.equals("contacts")) {
-                loader.setControllerFactory(aClass -> getContactsController());  // TODO - factory
-            }
-            log.debug("1");
+            loader.setControllerFactory(cls -> appContext.getBean(cls));
             Parent view = loader.load();
-            log.debug("2");
 
             scene = new Scene(view);
             scene.getStylesheets().add(getClass().getResource(nameCssConverter(name)).toExternalForm());
