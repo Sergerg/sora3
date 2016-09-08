@@ -13,15 +13,17 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="org.sora.fx.controllers.MainController">
     <top>
-        <fx:include source="mainmenu.fxml"/>
+        <fx:include fx:id="mainmenu" source="mainmenu.fxml"/>
     </top>
+    <bottom>
+        <fx:script>
+            function handleButtonAction(event) {
+                java.lang.System.out.println('You clicked me!');
+            }
+             </fx:script>
+        <Button text="1" onAction="handleButtonAction(event);"/>
+    </bottom>
     <center>
         <Label text="%mainform.mainlabel"/>
-        <fx:script>
-        function handleButtonAction(event) {
-            java.lang.System.out.println('You clicked me!');
-        }
-        </fx:script>
-        <Button text="1" onAction="handleButtonAction(event);"/>
     </center>
 </BorderPane>
