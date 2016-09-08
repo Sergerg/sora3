@@ -18,7 +18,4 @@ Resources: `native2ascii`
 
 
 TODO:
-1. Menu for all form.
-2. Factory for Controllers.
-4. Add table columns.
 5.
