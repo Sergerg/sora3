@@ -1,7 +1,10 @@
+<?language javascript?>
+
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import java.lang.String?>
 <MenuBar
         xmlns:fx="http://javafx.com/fxml/1"
         fx:id="menuBar"
@@ -22,8 +25,10 @@
             <items>
                 <MenuItem text="Error screen" onAction="#showErrorDialog"/>
                 <SeparatorMenuItem />
-                <!--<MenuItem text="About1" onAction="alert('aaaaaaa');" />-->
-                <MenuItem text="About" disable="true"/>
+                <fx:define>
+                    <String fx:id="myText" fx:value="About." />
+                </fx:define>
+                <MenuItem fx:id="menuAbout" text="$myText" disable="true"/>
             </items>
         </Menu>
     </menus>
