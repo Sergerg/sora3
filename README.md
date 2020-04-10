@@ -19,3 +19,5 @@ Resources: `native2ascii`
 
 TODO:
 5.
+
+DEPRECATED - test discord webhook
